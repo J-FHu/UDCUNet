@@ -10,7 +10,7 @@ python setup.py develop
 ```
 ## How To Inference or Test
 - Refer to ./options/test for the configuration file of the model to be tested.  
-- The pretrained models are available in ./experiments/UDCUNet_4gpu_pretrained/models .
+- Download the pretrained model from [Google Drive](https://drive.google.com/file/d/1cslBiWi1UY33pvhvFLjsb6baTP9z1Pud/view?usp=sharing) and put it in ./experiments/UDCUNet_4gpu_pretrained/models .
 - Prepare the testing data (validation data) in ./datasets/test/input (./datasets/validation/input and ./datasets/validation/GT)
 - All datasets can be downloaded at the [Challenage official website](https://codalab.lisn.upsaclay.fr/competitions/4874#participate).
 - Then run the follwing codes (Inference for example):  

@@ -11,8 +11,8 @@ python setup.py develop
 ## How To Inference or Test
 - Refer to ./options/test for the configuration file of the model to be tested.  
 - Download the pretrained model from [Google Drive](https://drive.google.com/file/d/1cslBiWi1UY33pvhvFLjsb6baTP9z1Pud/view?usp=sharing) and put it into ./experiments/UDCUNet_4gpu_pretrained/models .
-- Prepare the testing data (validation data) in ./datasets/test/input (./datasets/validation/input and ./datasets/validation/GT)
-- All datasets can be downloaded at the [Challenage official website](https://codalab.lisn.upsaclay.fr/competitions/4874#participate).
+- Prepare the testing data (validation data) into ./datasets/test/input (./datasets/validation/input and ./datasets/validation/GT)
+- All datasets can be downloaded at the [MIPI Challenage official website](https://codalab.lisn.upsaclay.fr/competitions/4874#participate).
 - Then run the follwing codes (Inference for example):  
 
 ```
@@ -23,7 +23,7 @@ The testing results will be saved in the ./results folder.
 ## How To Train
 - Refer to ./options/train for the configuration file of the model to train.  
 - Prepare the training data in ./datasets/training/input and ./datasets/training/GT 
-- All datasets can be downloaded at the [Challenage official website](https://codalab.lisn.upsaclay.fr/competitions/4874#participate).
+- All datasets can be downloaded at the [MIPI Challenage official website](https://codalab.lisn.upsaclay.fr/competitions/4874#participate).
 - The training command is like  
 ```
 CUDA_VISIBLE_DEVICES=0 python basicsr/train.py -opt options/train/UDCUNet_train.yml

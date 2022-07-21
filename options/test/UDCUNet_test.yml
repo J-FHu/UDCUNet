@@ -1,0 +1,51 @@
+name: UDCUNet_4gpu-test
+model_type: UDCTestModel
+num_gpu: 1  # set num_gpu: 0 for cpu mode
+manual_seed: 0
+scale: 1
+
+datasets:
+  test_1:
+    name: syn_val_rot5
+    type: PairedImgPSFNpyDataset
+    lq_map_type: same
+    gt_map_type: same
+    io_backend:
+      type: npy
+    folders:
+      rot_5:
+        dataroot_lq: ./datasets/validation/input
+        dataroot_gt: ./datasets/validation/GT
+
+
+# network structures
+network_g:
+  type: UDCUNet
+  nf: 32
+  depths: [2,2,2,8,2,2,2]
+
+# path
+path:
+  pretrain_network_g: experiments/UDCUNet_4gpu_pretrained/models/net_g_600000.pth
+  strict_load_g: true
+  param_key_g: 'params_ema'
+
+# validation settings
+val:
+  save_img: true
+#  save_npy: false
+  suffix: ~
+
+  metrics:
+    psnr: # metric name, can be arbitrary
+      type: calculate_psnr
+      crop_border: 4
+      test_y_channel: false
+    ssim:
+      type: calculate_ssim
+      crop_border: 4
+      test_y_channel: false
+    lpips: # metric name, can be arbitrary
+      type: calculate_lpips
+      crop_border: 4
+      test_y_channel: false

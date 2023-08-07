@@ -26,8 +26,8 @@ The testing results will be saved in the ./results folder.
 - All datasets can be downloaded at the [MIPI Challenage official website](https://codalab.lisn.upsaclay.fr/competitions/4874#participate).
 - The training command is like  
 ```
-CUDA_VISIBLE_DEVICES=0 python basicsr/train.py -opt options/train/UDCUNet_train.yml
-CUDA_VISIBLE_DEVICES=0,1,2,3 python -m torch.distributed.launch --nproc_per_node=4 --master_port=4321 basicsr/train.py -opt options/train/UDCUNet_train.yml --launcher pytorch
+Single GPU: CUDA_VISIBLE_DEVICES=0 python basicsr/train.py -opt options/train/UDCUNet_train.yml
+Multi GPU: CUDA_VISIBLE_DEVICES=0,1,2,3 python -m torch.distributed.launch --nproc_per_node=4 --master_port=4321 basicsr/train.py -opt options/train/UDCUNet_train.yml --launcher pytorch
 ```
 For more training commands and details, please check the docs in [BasciSR](https://github.com/XPixelGroup/BasicSR)  
 
